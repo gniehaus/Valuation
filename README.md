@@ -1,2 +1,9 @@
-# Valuation
 Using Regression Coefficients for Equity Value
+
+There's two main approaches to valuing a company, intrinsic and relative valuation. For Intrinsic Valuation, we could use a Discounted Cash Flow that assumes growth rates and discounts rates, used to project future cash flows and determine the present value of those cash flows. Alternatively, we could look at the average multiple of a sector, and apply that multiple to a company's financial metric. For instance, if the average multiple for Consumer Staples sector is 3x revenue, than a company with $500M in revenue is worth $1.5B in Equity Value.
+
+In this analysis we look at multiples in the terms of regression coefficients. For instance, we find that our companies in the industrials sector can be modeled with a 3.12 revenue multiple (explaining 65% of the valuation of the company R2). We look at over 820 stocks with up to 20 years of 10Q/10K financials. All data is pulled from a Bloomberg Terminal using an academic license.
+
+By adding more attributes, we can better explain the valuation of a company. Additionally, by grouping the data with GICS indusry groups, we obtain a more granular cluster of stocks. With 5 attributes, we can explain 77% of the valuation of Pharma, and with 15 attributes, we can explain 92% of the valuation of Utilities. (We don't scale the data until the 15 attribute model in order to easier explain coefficients. EX with scaling Simple Linear Regression our revenue coefficient could be 32k, however without scaling our coefficient is 3.12)
+
+To make sure we are not overfitting our model, we include training score, r2 score, and adj r2 score. Our 15 attribute Utilites Industry Group model seems to be a well fit model, and we use this scaled model to determine potentially undervalued stocks and a price target for those stocks. With additional computing power, attributes, data, and modeling techniques we could increase the predictive power even further.
